@@ -217,10 +217,11 @@
  * Read MySQL service properties from _ENV['VCAP_SERVICES']
  */
 $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+
 $mysql_services = array();
 foreach($service_blob as $service_provider => $service_list) {
     // looks for 'cleardb' or 'p-mysql' service
-    if ($service_provider === 'cleardb' || $service_provider === 'p-mysql') {
+    if ($service_provider === 'cleardb' || $service_provider === 'mysql') {
         foreach($service_list as $mysql_service) {
             $mysql_services[] = $mysql_service;
         }
@@ -247,7 +248,7 @@ $databases['default']['default'] = array(
     'password' => $mysql_services[0]['credentials']['password'],
     'host' => $mysql_services[0]['credentials']['hostname'],
     'prefix' => 'drupal_',
-    'collation' => 'utf8_general_ci',
+    'collation' => 'utf8mb4',
 );
 
 /**
@@ -280,7 +281,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = 'my unique salt - you should really change this';
+$drupal_hash_salt = '75f7a83b14a1e4ec13ca9827f71ccd1c';
 
 /**
  * Base URL (optional).

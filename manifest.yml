@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cf-ex-drupal
+- name: cf-ex-drupal-test-2
   memory: 128M
   instances: 1
   path: .
