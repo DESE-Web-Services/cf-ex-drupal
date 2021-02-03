@@ -247,8 +247,7 @@ $databases['default']['default'] = array(
     'username' => $mysql_services[0]['credentials']['username'],
     'password' => $mysql_services[0]['credentials']['password'],
     'host' => $mysql_services[0]['credentials']['hostname'],
-    'prefix' => 'drupal_',
-    'collation' => 'utf8mb4',
+    'prefix' => 'drupal_'
 );
 
 /**
@@ -282,6 +281,7 @@ $update_free_access = FALSE;
  *
  */
 $drupal_hash_salt = '75f7a83b14a1e4ec13ca9827f71ccd1c';
+$settings['hash_salt'] = $drupal_hash_salt;
 
 /**
  * Base URL (optional).
