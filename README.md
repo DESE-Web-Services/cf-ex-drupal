@@ -1,5 +1,7 @@
 ## CloudFoundry PHP Example Application: Drupal 
 
+Modified to be compatible with cloud.gov.au
+
 This is an example application which can be run on CloudFoundry using the [PHP Build Pack].
 
 This is an out-of-the-box implementation of Drupal.  It's an example of how common PHP applications can easily be run on CloudFoundry.
@@ -9,14 +11,14 @@ This is an out-of-the-box implementation of Drupal.  It's an example of how comm
 1. Clone the app (i.e. this repo).
 
   ```bash
-  git clone https://github.com/cloudfoundry-samples/cf-ex-drupal.git cf-ex-drupal
+  git clone https://github.com/DESE-Web-Services/cf-ex-drupal.git cf-ex-drupal
   cd cf-ex-drupal
   ```
 
 1.  If you don't have one already, create a MySQL service.  With Pivotal Web Services, the following command will create a free MySQL database through [ClearDb].  Any MySQL provider should work.
 
   ```bash
-  cf create-service cleardb spark mysql
+  cf create-service mysql shared mysql
   ```
 
 1. Edit `sites/default/settings.php` and change the `drupal_hash_salt`.  This should be uniqe for every installation.  Optionally edit any other settings, however you do *not* need to edit the database configuration.  The file included with this example will automatically pull that information from `VCAP_SERVICES`.
